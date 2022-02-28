@@ -1,0 +1,254 @@
+/* common */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  background: url('./assets/bg.jpg') top / cover no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding-top: 6%;
+}
+
+.audio-player {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  background-color: rgba(99,107,108, 20%);
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 0 1rem 0 rgba(41, 39, 39, 0.7);
+}
+
+.button_clicked {
+  animation: pressButton 0.2s;
+}
+
+@keyframes pressButton {
+  0% {
+    width: 50px;
+    height: 50px;
+  }
+
+  50% {
+    width: 45px;
+    height: 45px;
+  }
+
+  100% {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+
+/* info */
+.info {
+  display: flex;
+}
+
+.info__cover {
+  width: 250px;
+  height: 250px;
+}
+
+.info__cover-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.info__text {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.info__title {
+  font-weight: bold;
+}
+
+/* timeline */
+.timeline {
+  margin-top: 50px;
+  cursor: pointer;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(42,47,50, 25%);
+  position: relative;
+}
+
+.timeline__progress {
+  width: 0%;
+  height: 4px;
+  background-color: #000000;
+  position: relative;
+}
+
+.timeline__progress::after {
+  display: block;
+  width: 10px;
+  height: 10px;
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  background-color: #000000;
+  border-radius: 20px;
+}
+
+.timeline__time-current {
+  top: 10px;
+  position: absolute;
+  font-size: 0.75rem;
+  color: rgba(42,47,50, 70%);
+}
+
+.timeline__time-duration {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: 0.75rem;
+  color: rgba(42,47,50, 70%);
+}
+
+/* controls */
+.controls {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 50px auto 0;
+}
+
+.controls__previous {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-image: url('./assets/previous.svg');
+  flex-basis: 50px;
+  background-repeat: no-repeat;
+}
+
+.controls__play {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  flex-basis: 50px;
+  background-repeat: no-repeat;
+}
+
+.controls__play_play {
+  background-image: url('./assets/play.svg');
+}
+
+.controls__play_pause {
+  background-image: url('./assets/pause.svg');
+}
+
+.controls__next {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-image: url('./assets/previous.svg');
+  transform: rotate(180deg);
+  flex-basis: 50px;
+  background-repeat: no-repeat;
+}
+
+/* volume-range */
+.volume-range {
+  position: relative;
+  margin: 50px auto 0;
+  cursor: pointer;
+  width: 80%;
+  height: 4px;
+  background-color: rgba(42,47,50, 25%);
+}
+
+.volume-range__progress {
+  width: 0%;
+  height: 4px;
+  background-color: #000000;
+  position: relative;
+}
+
+.volume-range__progress::after {
+  display: block;
+  width: 17px;
+  height: 17px;
+  content: '';
+  position: absolute;
+  right: -7px;
+  top: -7px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 1rem 0 rgb(41 39 39 / 70%);
+}
+
+.volume-range::before {
+  position: absolute;
+  cursor: auto;
+  left: -35px;
+  bottom: -8px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  content: "";
+  background-image: url('./assets/volume_down.svg');
+}
+
+.volume-range::after {
+  position: absolute;
+  cursor: auto;
+  right: -35px;
+  bottom: -8px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  content: "";
+  background-image: url('./assets/volume_up.svg');
+}
+
+/* footer */
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 43%;
+  display: flex;
+  height: 50px;
+  width: 250px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__github-link {
+  width: 32px;
+  height: 32px;
+  display: block;
+  background: url('./assets/github.svg');
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer__github-link:hover {
+  filter: invert(49%) sepia(0%) saturate(4%) hue-rotate(179deg) brightness(102%) contrast(84%);
+}
+
+.footer__logo-link {
+  width: 120px;
+  height: 32px;
+  display: block;
+  background: url('./assets/school-logo.svg') center no-repeat;
+  cursor: pointer;
+}
+
+
