@@ -5,6 +5,7 @@ const info = audioPlayer.querySelector('.info');
 
 let playNum = 1;
 let audio = new Audio(music[playNum].singSrc);
+let commonVolume = .75;
 
 const getTimeCodeFromNum = (num) => {
   let minutes = Math.floor(Math.floor(num) / 60);
@@ -22,9 +23,9 @@ const addEffectOnClick = (event) => {
 };
 
 // onload
-audio.addEventListener('loadeddata', () => {
+audio.addEventListener('loadeddata', (e) => {
   audioPlayer.querySelector('.timeline__time-duration').textContent = getTimeCodeFromNum(audio.duration);
-  audio.volume = .75;
+  audio.volume = commonVolume;
   audioPlayer.querySelector('.volume-range__progress').style.width = audio.volume * 100 + '%';
   info.querySelector('.info__title').textContent = music[playNum].title;
   info.querySelector('.info__singer').textContent = music[playNum].singer;
@@ -98,16 +99,6 @@ volume.addEventListener('click', (event) => {
     newVolume > 1 && (newVolume = 1);
   }
   audio.volume = newVolume;
+  commonVolume = newVolume;
   audioPlayer.querySelector('.volume-range__progress').style.width = newVolume * 100 + '%';
-}, false)
-
-console.log(`
-Самостоятельная оценка: 70 баллов (60 в score)
-  Вёрстка +10
-  Кнопка Play/Pause +10
-  Есть кнопки "Вперёд" и "Назад" при кликах по которым можно менять аудиотреки. Треки пролистываются по кругу - после последнего идёт первый +10
-  При смене трека меняется изображение - обложка трека +10
-  Есть прогресс-бар, отображающий прогресс проигрывания трека. При перемещении ползунка вручную меняется текущее время проигрывания трека +10
-  Отображается общее и текущее время проигрывания трека +10
-  Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10 (качественное оформление и также добавлен регулятор громкости)
-`)
+}, false);
